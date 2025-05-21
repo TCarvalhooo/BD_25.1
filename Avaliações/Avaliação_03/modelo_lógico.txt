@@ -1,3 +1,4 @@
+
 @startuml
 
 ' hide the spot
@@ -8,11 +9,13 @@ skinparam linetype ortho
 
 entity "Aluno" as e01 {
   *idAluno : number <<generated>>
+  
   --
+  *idCurso : number <<FK>>
   *matricula : text
   *nome : text
   *email : text
-  *idade : integer
+  *idade : number
 }
 
 entity "Professor" as e02 {
@@ -21,7 +24,7 @@ entity "Professor" as e02 {
   *nome : text
   *idade : integer
   *email : text
-  *salario : integer
+  *salario : number
 }
 
 entity "Curso" as e03 {
@@ -29,15 +32,16 @@ entity "Curso" as e03 {
   --
   *nome : text
   *departamento : text
-  *semestre : integer
+  *semestre : number
 }
 
 entity "Disciplina" as e04 {
   *idDisciplina : number <<generated>>
   --
+  *idProfessor : number <<FK>>
   *nome : text
   *departamento : text
-  *semestre : integer
+  *semestre : number
 }
 
 
@@ -49,4 +53,3 @@ e03 }|..|| e04
 
 
 @enduml
-
